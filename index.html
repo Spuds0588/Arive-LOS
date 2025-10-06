@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Arive LOS Tutorials & Automation Guides | Mortgage Tech with Corey Burns</title>
+
+  <!-- SEO Metadata -->
+  <meta name="description" content="Explore all Arive LOS and Arive for Admins tutorials by Corey Burns — practical automation tips, setup guides, and workflow best practices for mortgage professionals." />
+  <meta name="keywords" content="Arive LOS, Arive mortgage software, mortgage tech, Arive tutorials, Arive admin, Corey Burns" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Arive LOS Tutorials & Automation Guides" />
+  <meta property="og:description" content="Explore practical Arive LOS tutorials from Corey Burns — automation, setup, and best practices for mortgage pros." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://yourdomain.com/arive-los/" />
+  <meta property="og:image" content="https://img.youtube.com/vi/YOUR_FEATURED_VIDEO_ID/maxresdefault.jpg" />
+
+  <style>
+    body {
+      font-family: system-ui, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #f9fafb;
+      color: #111827;
+    }
+    header {
+      background: #1e3a8a;
+      color: white;
+      padding: 2rem 1rem;
+      text-align: center;
+    }
+    header h1 {
+      margin: 0;
+      font-size: 2rem;
+    }
+    header p {
+      font-size: 1.1rem;
+      opacity: 0.9;
+    }
+    .container {
+      max-width: 1200px;
+      margin: 2rem auto;
+      padding: 0 1rem;
+    }
+    h2 {
+      color: #1e40af;
+      border-bottom: 2px solid #e5e7eb;
+      padding-bottom: 0.5rem;
+    }
+    .video-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 1.5rem;
+      margin-top: 1.5rem;
+    }
+    .video-card {
+      background: white;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+      transition: transform 0.2s ease;
+    }
+    .video-card:hover {
+      transform: translateY(-3px);
+    }
+    .video-card img {
+      width: 100%;
+      height: 170px;
+      object-fit: cover;
+    }
+    .video-info {
+      padding: 1rem;
+    }
+    .video-info h3 {
+      margin: 0;
+      font-size: 1rem;
+      color: #111827;
+    }
+    .video-info p {
+      font-size: 0.9rem;
+      color: #4b5563;
+      margin-top: 0.3rem;
+    }
+    footer {
+      text-align: center;
+      padding: 2rem 1rem;
+      color: #6b7280;
+      font-size: 0.9rem;
+      border-top: 1px solid #e5e7eb;
+    }
+    .cta {
+      display: inline-block;
+      margin-top: 1rem;
+      background: #2563eb;
+      color: white;
+      padding: 0.75rem 1.5rem;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 500;
+      transition: background 0.2s ease;
+    }
+    .cta:hover {
+      background: #1e40af;
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <h1>Arive LOS Tutorials & Automation Guides</h1>
+    <p>By <a href="https://www.youtube.com/@Corey_Burns" target="_blank" style="color:#93c5fd;text-decoration:none;">Corey Burns</a> | Mortgage Tech for Modern Brokers</p>
+  </header>
+
+  <div class="container">
+    <section>
+      <h2>🎯 Arive LOS Tutorials</h2>
+      <div id="los-videos" class="video-grid"></div>
+    </section>
+
+    <section style="margin-top:3rem;">
+      <h2>🛠️ Arive for Admins</h2>
+      <div id="admin-videos" class="video-grid"></div>
+    </section>
+
+    <a class="cta" href="https://www.youtube.com/@Corey_Burns/playlists" target="_blank">View Full Playlists on YouTube</a>
+  </div>
+
+  <footer>
+    © 2025 Corey Burns — All Rights Reserved<br>
+    <a href="https://www.youtube.com/@Corey_Burns" target="_blank">YouTube</a> |
+    <a href="https://www.linkedin.com/in/corey-burns/" target="_blank">LinkedIn</a>
+  </footer>
+
+  <script>
+    // Replace with your own YouTube Data API key
+    const API_KEY = 'AIzaSyCZZzDGOjjV41ALqxK9eoaFdEukHuhm1_w';
+
+    // Playlist IDs
+    const PLAYLISTS = {
+      los: 'PLm2ajqc2uMYCR4rYtA5LBCNYn8PoNk2Dy',
+      admin: 'PLm2ajqc2uMYCzqslxZadcf4Rzp8h2tLHm'
+    };
+
+    async function fetchPlaylist(playlistId, targetId) {
+      const container = document.getElementById(targetId);
+      try {
+        const res = await fetch(`https://www.googleapis.com/youtube/v3/playlistItems?part=snippet&maxResults=20&playlistId=${playlistId}&key=${API_KEY}`);
+        const data = await res.json();
+        if (!data.items) {
+          container.innerHTML = '<p>Unable to load videos at this time.</p>';
+          return;
+        }
+
+        container.innerHTML = data.items.map(item => {
+          const videoId = item.snippet.resourceId.videoId;
+          const title = item.snippet.title;
+          const thumb = item.snippet.thumbnails.medium.url;
+          const desc = item.snippet.description.split('\n')[0];
+          return `
+            <a class="video-card" href="https://www.youtube.com/watch?v=${videoId}" target="_blank">
+              <img src="${thumb}" alt="${title}">
+              <div class="video-info">
+                <h3>${title}</h3>
+                <p>${desc}</p>
+              </div>
+            </a>
+          `;
+        }).join('');
+      } catch (err) {
+        console.error(err);
+        container.innerHTML = '<p>Failed to load playlist.</p>';
+      }
+    }
+
+    fetchPlaylist(PLAYLISTS.los, 'los-videos');
+    fetchPlaylist(PLAYLISTS.admin, 'admin-videos');
+  </script>
+</body>
+</html>
