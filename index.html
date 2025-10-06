@@ -4,15 +4,9 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Arive LOS Tutorials & Automation Guides | Corey Burns</title>
-
-  <meta name="description" content="Independent tutorials, automation guides, and workflow tips for Arive LOS power users and admins — created by Corey Burns. Not affiliated with Arive." />
-  <meta name="keywords" content="Arive LOS, mortgage tech, Arive admin, loan origination system, Corey Burns tutorials" />
-
-  <meta property="og:title" content="Arive LOS Tutorials & Automation Guides" />
-  <meta property="og:description" content="Independent tutorials for Arive LOS Power Users & Admins, created by Corey Burns." />
-  <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://spuds0588.github.io/Arive-LOS/" />
-  <meta property="og:image" content="https://img.youtube.com/vi/YOUR_FEATURED_VIDEO_ID/maxresdefault.jpg" />
+  <meta name="description" content="Independent Arive LOS tutorials and automation guides for mortgage professionals by Corey Burns. Learn to optimize workflows, fix common issues, and master Arive features.">
+  <meta name="author" content="Corey Burns">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap">
 
   <style>
     :root {
@@ -24,24 +18,23 @@
     }
 
     body {
-      font-family: system-ui, sans-serif;
-      margin: 0;
-      padding: 0;
-      background: var(--platinum);
+      font-family: 'Inter', sans-serif;
+      background-color: var(--platinum);
       color: var(--penn-blue);
+      margin: 0;
+      line-height: 1.6;
     }
 
     header {
       background: var(--penn-blue);
       color: white;
-      padding: 2rem 1rem;
       text-align: center;
+      padding: 2rem 1rem;
     }
 
     header h1 {
-      margin: 0;
-      font-size: 2rem;
-      color: var(--platinum);
+      font-size: 1.8rem;
+      margin-bottom: 0.3rem;
     }
 
     header p {
@@ -49,23 +42,24 @@
       opacity: 0.9;
     }
 
-    .container {
+    main {
       max-width: 1200px;
       margin: 2rem auto;
       padding: 0 1rem;
     }
 
     h2 {
-      color: var(--international-klein-blue);
-      border-bottom: 3px solid var(--savoy-blue);
-      padding-bottom: 0.4rem;
+      color: var(--resolution-blue);
+      border-left: 4px solid var(--savoy-blue);
+      padding-left: 0.6rem;
+      font-size: 1.4rem;
     }
 
     .video-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-      gap: 1.5rem;
-      margin-top: 1.5rem;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1rem;
+      margin-bottom: 2rem;
     }
 
     .video-card {
@@ -81,50 +75,72 @@
       box-shadow: 0 6px 14px rgba(0,0,0,0.12);
     }
 
-    .video-card img {
+    .video-card iframe {
       width: 100%;
-      height: 170px;
-      object-fit: cover;
+      height: 180px;
+      border: none;
     }
 
-    .video-info {
-      padding: 1rem;
-    }
-
-    .video-info h3 {
-      margin: 0;
-      font-size: 1rem;
+    .video-card .title {
+      padding: 0.75rem 1rem;
+      font-weight: 600;
       color: var(--resolution-blue);
+      text-decoration: none;
+      display: block;
     }
 
-    .video-info p {
-      font-size: 0.9rem;
-      color: #4b5563;
-      margin-top: 0.3rem;
+    .cta-section {
+      background: var(--savoy-blue);
+      color: white;
+      text-align: center;
+      padding: 2rem 1rem;
+      border-radius: 12px;
+      margin: 2rem 0;
     }
 
-    .cta {
-      display: inline-block;
-      margin-top: 2rem;
+    .cta-section h3 {
+      font-size: 1.3rem;
+      margin-bottom: 0.8rem;
+    }
+
+    .cta-buttons {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .cta-buttons a {
       background: var(--international-klein-blue);
       color: white;
-      padding: 0.8rem 1.6rem;
-      border-radius: 8px;
       text-decoration: none;
-      font-weight: 500;
+      padding: 0.8rem 1.2rem;
+      border-radius: 8px;
+      font-weight: 600;
       transition: background 0.2s ease;
     }
 
-    .cta:hover {
+    .cta-buttons a:hover {
       background: var(--resolution-blue);
     }
 
-    footer {
-      background: var(--penn-blue);
-      color: var(--platinum);
+    section.info {
       text-align: center;
-      padding: 3rem 1rem 2rem;
-      margin-top: 3rem;
+      max-width: 800px;
+      margin: 0 auto 3rem;
+      color: var(--penn-blue);
+    }
+
+    section.info p {
+      font-size: 1rem;
+    }
+
+    footer {
+      margin-top: 2rem;
+      padding: 2rem 1rem;
+      background: var(--penn-blue);
+      color: white;
+      text-align: center;
     }
   </style>
 </head>
@@ -132,74 +148,95 @@
 <body>
   <header>
     <h1>Arive LOS Tutorials & Automation Guides</h1>
-    <p>By Corey Burns | <span style="color:#93c5fd;">Mortgage Tech for Modern Brokers</span></p>
+    <p>Independent video tutorials by Corey Burns • Mortgage Tech for Modern Brokers</p>
   </header>
 
-  <div class="container">
-    <section>
-      <h2>🎯 Arive LOS Tutorials</h2>
-      <div id="los-videos" class="video-grid"></div>
+  <main>
+    <section class="info">
+      <p>
+        These tutorials are independently created by <strong>Corey Burns</strong> to help 
+        mortgage professionals streamline workflows, fix common Arive issues, and master automation.  
+        Corey shares weekly insights on 
+        <a href="https://www.linkedin.com/in/coreytburns/" target="_blank">LinkedIn</a> 
+        and deep technical tutorials on 
+        <a href="https://www.youtube.com/@Corey_Burns" target="_blank">YouTube</a>.
+      </p>
     </section>
 
-    <section style="margin-top:3rem;">
-      <h2>🛠️ Arive for Admins</h2>
-      <div id="admin-videos" class="video-grid"></div>
-    </section>
+    <h2>Latest Arive LOS Tutorials</h2>
+    <div id="arive-tutorials" class="video-grid"></div>
 
-    <div style="text-align:center;">
-      <a class="cta" href="https://www.youtube.com/@Corey_Burns/playlists" target="_blank">
-        View Full Playlists on YouTube
-      </a>
-    </div>
-  </div>
+    <h2>For Arive Admins</h2>
+    <div id="arive-admins" class="video-grid"></div>
+
+    <section class="cta-section">
+      <h3>Want to see more tutorials and automation insights?</h3>
+      <div class="cta-buttons">
+        <a href="https://www.youtube.com/@Corey_Burns" target="_blank">🎥 Watch all tutorials on YouTube</a>
+        <a href="https://www.linkedin.com/in/coreytburns/" target="_blank">💬 Follow Corey on LinkedIn</a>
+      </div>
+    </section>
+  </main>
 
   <footer>
     <burns-dev-card layout="full-width"></burns-dev-card>
-    <script src="https://spuds0588.github.io/ReferenceMaterials/burns-dev-card.js" defer></script>
-    <p style="margin-top:1rem; font-size:0.85rem;">© 2025 Corey Burns — All Rights Reserved</p>
   </footer>
 
+  <!-- Developer Card Component -->
+  <script src="https://spuds0588.github.io/ReferenceMaterials/burns-dev-card.js" defer></script>
+
+  <!-- YouTube API Embed -->
   <script>
     const API_KEY = 'AIzaSyCZZzDGOjjV41ALqxK9eoaFdEukHuhm1_w';
-    const PLAYLISTS = {
-      los: 'PLm2ajqc2uMYCR4rYtA5LBCNYn8PoNk2Dy',
-      admin: 'PLm2ajqc2uMYCzqslxZadcf4Rzp8h2tLHm'
-    };
+    const TUTORIALS_PLAYLIST_ID = 'PLm2ajqc2uMYCR4rYtA5LBCNYn8PoNk2Dy';
+    const ADMINS_PLAYLIST_ID = 'PLm2ajqc2uMYCzqslxZadcf4Rzp8h2tLHm';
 
-    async function fetchPlaylist(playlistId, targetId) {
-      const container = document.getElementById(targetId);
-      try {
-        const res = await fetch(`https://www.googleapis.com/youtube/v3/playlistItems?part=snippet&maxResults=6&playlistId=${playlistId}&key=${API_KEY}`);
-        const data = await res.json();
+    async function fetchVideos(playlistId, containerId) {
+      const res = await fetch(`https://www.googleapis.com/youtube/v3/playlistItems?part=snippet&maxResults=6&playlistId=${playlistId}&key=${API_KEY}`);
+      const data = await res.json();
 
-        if (!data.items) {
-          container.innerHTML = '<p>Unable to load videos at this time.</p>';
-          return;
-        }
-
-        container.innerHTML = data.items.map(item => {
-          const videoId = item.snippet.resourceId.videoId;
-          const title = item.snippet.title;
-          const thumb = item.snippet.thumbnails.medium.url;
-          const desc = item.snippet.description.split('\n')[0];
-          return `
-            <a class="video-card" href="https://www.youtube.com/watch?v=${videoId}" target="_blank">
-              <img src="${thumb}" alt="${title}">
-              <div class="video-info">
-                <h3>${title}</h3>
-                <p>${desc}</p>
-              </div>
-            </a>
-          `;
-        }).join('');
-      } catch (err) {
-        console.error(err);
-        container.innerHTML = '<p>Failed to load playlist.</p>';
-      }
+      const container = document.getElementById(containerId);
+      data.items.forEach(item => {
+        const videoId = item.snippet.resourceId.videoId;
+        const title = item.snippet.title;
+        const videoCard = `
+          <div class="video-card">
+            <iframe src="https://www.youtube.com/embed/${videoId}" allowfullscreen></iframe>
+            <a href="https://www.youtube.com/watch?v=${videoId}" target="_blank" class="title">${title}</a>
+          </div>
+        `;
+        container.insertAdjacentHTML('beforeend', videoCard);
+      });
     }
 
-    fetchPlaylist(PLAYLISTS.los, 'los-videos');
-    fetchPlaylist(PLAYLISTS.admin, 'admin-videos');
+    fetchVideos(TUTORIALS_PLAYLIST_ID, 'arive-tutorials');
+    fetchVideos(ADMINS_PLAYLIST_ID, 'arive-admins');
+  </script>
+
+  <!-- JSON-LD Structured Data for SEO -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "VideoGallery",
+    "name": "Arive LOS Tutorials & Automation Guides",
+    "description": "Independent Arive LOS tutorials and automation guides by Corey Burns.",
+    "creator": {
+      "@type": "Person",
+      "name": "Corey Burns",
+      "sameAs": [
+        "https://www.linkedin.com/in/coreytburns/",
+        "https://www.youtube.com/@Corey_Burns"
+      ]
+    },
+    "hasPart": [
+      {
+        "@type": "VideoObject",
+        "name": "Arive LOS Tutorials",
+        "description": "Video tutorials for mortgage professionals using Arive LOS.",
+        "url": "https://spuds0588.github.io/Arive-LOS"
+      }
+    ]
+  }
   </script>
 </body>
 </html>
